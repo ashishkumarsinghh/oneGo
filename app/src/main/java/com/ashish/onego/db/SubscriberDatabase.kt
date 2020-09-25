@@ -9,7 +9,9 @@ abstract class SubscriberDatabase: RoomDatabase(){
     abstract  val subscriberDAO: SubscriberDAO
 
     companion object{
+
         @Volatile
+        //volatile makes field immediately visible to other threads
         private var instance: SubscriberDatabase? = null
         fun getInstance(ctx: Context): SubscriberDatabase{
             synchronized(this){
