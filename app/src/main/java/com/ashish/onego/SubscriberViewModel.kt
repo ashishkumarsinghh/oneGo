@@ -36,7 +36,7 @@ class SubscriberViewModel(private val repo: SubscriberRepo): ViewModel() {
     fun clearAllOrDelete(){
         clearAll()
     }
-    fun insert(subscriber:Subscriber){
+    private fun insert(subscriber:Subscriber){
         viewModelScope.launch { repo.insert(subscriber) }
     }
 
@@ -48,7 +48,7 @@ class SubscriberViewModel(private val repo: SubscriberRepo): ViewModel() {
         viewModelScope.launch { repo.delete(subscriber) }
     }
 
-    fun clearAll(){
+    private fun clearAll(){
         viewModelScope.launch { repo.deleteAll() }
     }
 }
